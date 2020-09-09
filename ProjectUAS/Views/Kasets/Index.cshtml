@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProjectUAS.Models.Kaset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.harga_sewa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.harga_beli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stok)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jumlah_pencarian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diskon)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.harga_sewa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.harga_beli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stok)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jumlah_pencarian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diskon)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

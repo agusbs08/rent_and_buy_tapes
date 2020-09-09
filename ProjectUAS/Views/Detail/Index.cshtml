@@ -1,0 +1,196 @@
+﻿@model ProjectUAS.Models.Kaset
+@{
+    ViewBag.Title = Model.nama;
+    string tanggal_peminjaman = DateTime.Now.ToString();
+    string tanggal_pengembalian = DateTime.Now.AddDays(7).ToString();
+}
+<center><h2>@Model.nama</h2></center>
+<center><img src="@Url.Content(Model.imagepath)" style="width:500px; height:300px;"/></center>
+
+<center>
+    <table class="table table-striped" style="width:500px; margin-top:20px;">
+        <tr>
+            <td scope="col">Game</td>
+            <td>@Model.nama</td>
+        </tr>
+
+        <tr>
+            <td scope="col">Stok</td>
+            <td>@Model.stok</td>
+        </tr>
+
+        <tr>
+            <td scope="col">Harga Pinjam</td>
+            <td>@Model.harga_sewa</td>
+        </tr>
+
+        <tr>
+            <td scope="col">Harga Beli/Pesan</td>
+            <td>@Model.harga_beli</td>
+        </tr>
+
+    </table>
+</center>
+
+<div class="row">
+
+    <div class="col-xs-12 col-md-4 col-sm-6 mb-3" style="margin-bottom:10px;">
+        @using (Html.BeginForm("Peminjaman", "Detail", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Peminjaman</h4>
+                <hr />
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="tanggal_peminjaman">Tanggal Peminjaman</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="The field diskon must be a number." id="tanggal_peminjaman" name="tanggal_peminjaman" type="text" value="@tanggal_peminjaman" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="tanggal_peminjaman" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="tanggal_pengembalian">Tanggal Pengembalian</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="The field diskon must be a number." id="tanggal_pengembalian" name="tanggal_pengembalian" type="text" value="@tanggal_pengembalian" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="diskon" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <label class="control-label col-md-4" for="id_kaset">id kaset</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="id_kaset" name="id_kaset" type="text" value="@Model.id" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="diskon" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <label class="control-label col-md-2" for="harga">harga</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="harga" name="harga" type="text" value="@Model.harga_sewa" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="diskon" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <center>
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Pinjam" class="btn btn-primary" />
+                        </div>
+                    </center>
+                </div>
+            </div>
+        }
+    
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-sm-6 mb-3" style="margin-bottom:10px;">
+        @using (Html.BeginForm("Pembelian", "Detail", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Pembelian</h4>
+                <hr />
+                
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="tanggal_pembelian">Tanggal Pembelian</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="The field diskon must be a number." id="tanggal_pembelian" name="tanggal_pembelian" type="text" value="@tanggal_peminjaman" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="tanggal_pembelian" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="jumlah">Jumlah</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="jumlah" name="jumlah" type="text" value="1" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="jumlah" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <label class="control-label col-md-2" for="id_kaset">id kaset</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="id_kaset" name="id_kaset" type="text" value="@Model.id" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="diskon" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <label class="control-label col-md-2" for="harga">harga</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="harga" name="harga" type="text" value="@Model.harga_sewa" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="harga" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <center>
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Beli" class="btn btn-primary" />
+                        </div>
+                    </center>
+                </div>
+            </div>
+        }
+        
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-sm-6 mb-3" style="margin-bottom:10px;">
+        
+        @using (Html.BeginForm("Pemesanan", "Detail", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Pemesanan</h4>
+                <hr />
+                
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="tanggal_pemesanan">Tanggal Pemesanan</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-required="The field diskon must be a number." id="tanggal_pemesanan" name="tanggal_pemesanan" type="text" value="@tanggal_peminjaman" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="tanggal_pemesanan" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="jumlah">Jumlah</label>
+                    <div class="col-md-8">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="jumlah" name="jumlah" type="text" value="1" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="jumlah" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <label class="control-label col-md-2" for="id_kaset">id kaset</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="id_kaset" name="id_kaset" type="text" value="@Model.id" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="diskon" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    <label class="control-label col-md-2" for="harga">harga</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="The field diskon must be a number." id="harga" name="harga" type="text" value="@Model.harga_sewa" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="diskon" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                   <center>
+                       <div class="col-md-offset-2 col-md-10">
+                           <input type="submit" value="Pesan" class="btn btn-primary" />
+                       </div>
+                   </center>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>

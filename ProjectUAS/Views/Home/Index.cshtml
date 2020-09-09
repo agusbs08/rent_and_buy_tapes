@@ -1,0 +1,60 @@
+﻿@model ProjectUAS.Models.HomeModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (ViewBag.Message != null)
+{
+    
+    <div class="alert alert-success">
+        <strong>Success!</strong>@ViewBag.Message
+    </div>
+    
+}
+<link href="~/Content/slider.css" rel="stylesheet" />
+
+<div class="jumbotron">
+    <h1>Kaset Set Set</h1>
+</div>
+
+<h3>Top Ten</h3>
+<div class="container testimonial-group">
+    <div class="row text-center">
+        @foreach (var item in Model.topTenKaset)
+        {
+            <div class="col-xs-3">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="@Url.Content(@item.imagepath)" class="card-img-top" alt="..." style="width:150px; height:120px">
+                        <div class="card-title"><h4>@item.nama</h4></div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="/Home/toDetail/@item.id" class="btn btn-primary">Detail</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<hr />
+<hr />
+
+<div class="row">
+    @foreach (var item in Model.allKaset)
+    {
+        <div class="col-xs-12 col-md-4 col-sm-6 mb-3" style="margin-bottom:10px;">
+            <div class="card">
+                <div class="card-body">
+                    <img src="@Url.Content(@item.imagepath)" class="card-img-top" alt="..." style="width:200px; height:200px">
+                    <div class="card-title"><h4>@item.nama</h4></div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="/Home/toDetail/@item.id" class="btn btn-primary">Detail</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

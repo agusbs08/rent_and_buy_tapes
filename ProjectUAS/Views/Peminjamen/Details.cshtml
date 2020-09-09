@@ -1,0 +1,66 @@
+﻿@model ProjectUAS.Models.Peminjaman
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Peminjaman</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_user)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_kaset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_kaset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.harga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.harga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tanggal_peminjaman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tanggal_peminjaman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tanggal_pengembalian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tanggal_pengembalian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_kembali)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_kembali)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

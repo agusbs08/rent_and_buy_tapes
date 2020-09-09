@@ -1,0 +1,66 @@
+﻿@model ProjectUAS.Models.Kaset
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kaset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.harga_sewa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.harga_sewa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.harga_beli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.harga_beli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jumlah_pencarian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jumlah_pencarian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diskon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diskon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProjectUAS.Models.Peminjaman>
+
+@{
+    ViewBag.Title = "Pengembalian";
+}
+
+<h2>Pengembalian</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kaset.nama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tanggal_peminjaman)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.tanggal_pengembalian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.harga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status_kembali)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kaset.nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tanggal_peminjaman)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tanggal_pengembalian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.harga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status_kembali)
+            </td>
+            <td>
+                @if(item.status_kembali != "Sudah Kembali")
+                {
+                    @Html.ActionLink("Kembalikan", "StrukPengembalian", new { id = item.id });
+                }
+            </td>
+        </tr>
+    }
+
+</table>

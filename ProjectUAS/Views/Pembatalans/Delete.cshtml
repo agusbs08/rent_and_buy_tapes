@@ -1,0 +1,48 @@
+﻿@model ProjectUAS.Models.Pembatalan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pembatalan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_pemesanan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_pemesanan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.denda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.denda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.refund)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.refund)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

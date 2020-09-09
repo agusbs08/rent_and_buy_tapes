@@ -1,0 +1,42 @@
+﻿@model ProjectUAS.Models.Pembatalan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pembatalan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_pemesanan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_pemesanan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.denda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.denda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.refund)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.refund)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

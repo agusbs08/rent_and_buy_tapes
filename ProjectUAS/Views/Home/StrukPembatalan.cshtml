@@ -1,0 +1,87 @@
+﻿@model ProjectUAS.Models.Pemesanan
+
+@{
+    var refund = Model.harga / 2;
+    var denda = refund;
+    ViewBag.Title = "Struk Pembatalan";
+}
+
+<h2>Struk Pembatalan</h2>
+
+<table class="table table-striped">
+    <tr>
+        <td scope="col">Kaset</td>
+        <td>:</td>
+        <td>@Model.Kaset.nama</td>
+    </tr>
+
+    <tr>
+        <td scope="col">Jumlah</td>
+        <td>:</td>
+        <td>@Model.jumlah</td>
+    </tr>
+
+    <tr>
+        <td scope="col">Tanggal Pemesanan</td>
+        <td>:</td>
+        <td>@Model.tanggal_pemesanan</td>
+    </tr>
+
+    <tr>
+        <td scope="col">Harga</td>
+        <td>:</td>
+        <td>@Model.harga</td>
+    </tr>
+
+    <tr>
+        <td scope="col">Denda</td>
+        <td>:</td>
+        <td>@denda</td>
+    </tr>
+
+    <tr>
+        <td scope="col">Refund</td>
+        <td>:</td>
+        <td>@refund</td>
+    </tr>
+
+</table>
+
+@using (Html.BeginForm("Pembatalan", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="display:none;">
+            <label class="control-label col-md-2" for="id_pemesanan"></label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-required="Username required" id="id_pemesanan" name="id_pemesanan" type="text" value="@Model.id" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="id_pemesanan" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            <label class="control-label col-md-2" for="denda"></label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-required="Username required" id="denda" name="denda" type="text" value="@denda" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="denda" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            <label class="control-label col-md-2" for="refund"></label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-required="Username required" id="refund" name="refund" type="text" value="@refund" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="refund" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
